@@ -1,0 +1,27 @@
+{
+  "name": "create_folder_file",
+  "version": "1.0.0",
+  "description": "Mern stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix my-app",
+    "dev": "concurrently \"npm run server\"\"npm run client\""
+  },
+  "keywords": [
+    "mern",
+    "react"
+  ],
+  "author": "Karen Martirosyan <karen.martirosyan79@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.5"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
+  }
+}

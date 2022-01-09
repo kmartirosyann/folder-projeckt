@@ -1,0 +1,42 @@
+body{
+  margin: 0 auto;
+}
+
+.header{
+  height: 50px;
+  background: brown;
+}
+.menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.folderImg{
+  width: 7%;
+}
+
+ul{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  list-style-type: none;
+}
+
+.gridBox{
+  margin-top: 50px;
+  display: grid;
+  grid-row-gap: 20px;
+  grid-column-gap: 20px;
+  grid-template-columns: auto auto auto auto auto;
+}
+.grid-item{
+  grid-template-rows: auto auto;
+  text-align: center;
+}
+.p-10{
+  padding: 10px;
+}
+.transformIcon{
+  transform:rotate(0.5turn);
+}
+
