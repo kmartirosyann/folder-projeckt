@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {Box,Modal,Typography} from '@mui/material';
+import { Box,Modal,Typography } from '@mui/material';
 
 import folder from '../../images/folder.png';
 import documents from '../../images/documents.png';
@@ -22,10 +22,11 @@ const style = {
   };
 
 const ChoosModale = () => {
+
     const state = useSelector(state => state)
     const dispatch = useDispatch()
 
-    const {openChoosModale} = state
+    const { openChoosModale } = state
 
     const handleClose = () =>{
         dispatch({
@@ -59,13 +60,33 @@ const ChoosModale = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2" >
-                <img src = {folder} alt='folder' className='folderImg' onClick={openFolderModal}/>
+            <Typography
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+                <img
+                  src = {folder} alt='folder'
+                  className='folderImg'
+                  onClick={openFolderModal}
+                />
             </Typography>
-            <Typography id="modal-modal-title" variant="h6" component="h2" >
-                 <img src = {documents} alt='documents' className='folderImg' onClick={openFileModal}/>
+            <Typography
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+                 <img
+                   src = {documents}
+                   alt='documents'
+                   className='folderImg'
+                   onClick={openFileModal}
+                 />
             </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+            <Typography
+              id="modal-modal-description"
+              sx={{ mt: 2 }}
+            >
               Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
             </Typography>
           </Box>

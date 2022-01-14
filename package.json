@@ -1,13 +1,13 @@
 {
-  "name": "create_folder_file",
+  "name": "folder-projeckt",
   "version": "1.0.0",
   "description": "Mern stack",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
     "server": "nodemon app.js",
-    "client": "npm run start --prefix my-app",
-    "dev": "concurrently \"npm run server\"\"npm run client\""
+    "my-app": "npm start --prefix my-app",
+    "dev": "concurrently \"npm run server\" \"npm run my-app\""
   },
   "keywords": [
     "mern",
@@ -16,7 +16,9 @@
   "author": "Karen Martirosyan <karen.martirosyan79@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.19.1",
     "config": "^3.3.6",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
     "mongoose": "^6.1.5"
   },

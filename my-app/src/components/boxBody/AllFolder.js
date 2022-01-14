@@ -2,7 +2,7 @@ import React from 'react';
 
 import folder from '../../images/folder.png';
 
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actionTypes from '../../store/action/actionTypes';
 
 

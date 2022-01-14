@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import {Box,Modal,Typography, TextField,Button,TextareaAutosize} from '@mui/material';
-import documents from '../../images/documents.png'
+import { Box,Modal,Typography, TextField,Button,TextareaAutosize } from '@mui/material';
+import documents from '../../images/documents.png';
 
 import * as actionTypes from '../../store/action/actionTypes';
-import {useSelector , useDispatch} from 'react-redux';
+import {useHttp}        from '../../hooks/http.hook';
+import {useSelector , useDispatch } from 'react-redux';
 
-import {_id,isValidate} from '../utils/util';
+import { _id,isValidate } from '../utils/util';
 
 
 const style = {
@@ -23,6 +24,7 @@ const style = {
 const ModalFile = () => {
     const state = useSelector(state => state)
     const dispatch = useDispatch()
+    const { request } = useHttp()
 
     const [fileName,setFileName] =useState('')
     const [text,setText] =useState('')
@@ -45,13 +47,17 @@ const ModalFile = () => {
     }
 
 
-    const heandlSubmit =()=>{
+  const url = 'http://localhost:5000'
+
+    const handleSubmit =()=>{
         setValid(isValidate(fileName,state.folders))
-        if(!valid.isValid){  
-                dispatch({
-                    type: actionTypes.ADD_FILL,
-                   peyload:{fileName, text,'Uid':_id(),'icon':'documents'}              
-                })
+        if(!valid.isValid){
+          request(`${url}/api/addFolder/${state.folderId}`,'PUT',{fileName,text,_id:_id(),'icon':'documents'})
+            .then(res=> dispatch({
+              type: actionTypes.ADD_FILL,
+              payload: res
+            }))
+
                 setFileName('')
         }      
         
@@ -89,7 +95,7 @@ const ModalFile = () => {
             onChange={hendlTextChange}
             value={text}
         />
-        <Button sx={{ mt: 2 }} variant="contained" onClick={heandlSubmit}>Submit</Button>
+        <Button sx={{ mt: 2 }} variant="contained" onClick={handleSubmit}>Submit</Button>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
           

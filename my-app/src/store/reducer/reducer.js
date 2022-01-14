@@ -48,6 +48,10 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     const actionReducer = {
+      [actionTypes.GET_ALL_FOLDERS]:()=>({
+        ...state,
+        folders: action.payload
+      }),
         [actionTypes.OPEN_CHOOS_MODAL]:()=>({
          ...state,
          Uid:[...new Set(state.Uid.concat(action.Uid)) ],
@@ -68,7 +72,7 @@ const reducer = (state = initialState, action) => {
            }),
         [actionTypes.ADD_FILL]:()=>({
             ...state,  
-           folders:add(state.folders,action.peyload,state.folderId ),
+           folders:add(state.folders,action.payload,state.folderId ),
            isOpenFileModale:false   
         }),
         [actionTypes.START_PROJECT]: () => ({
